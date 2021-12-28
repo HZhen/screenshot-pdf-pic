@@ -133,9 +133,8 @@ export default {
         let filename = "识别图片"
         // 转为file文件
         let file = this.base64toFile(data,filename);
-        let params = {
-          "file": file
-        }
+        const params = new FormData();
+        params.append('file', file);
         let res = await getText(params);
         if (res.code === 0) {
           this.textarea = res.data
